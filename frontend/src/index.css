@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass-card {
+    background: rgba(18, 20, 29, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .glass-card-hover {
+    transition: all 0.25s ease-in-out;
+  }
+  .glass-card-hover:hover {
+    border-color: rgba(124, 92, 247, 0.4);
+    box-shadow: 0 8px 32px -4px rgba(124, 92, 247, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-400;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes marquee-ltr {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee-ltr {
+    display: flex;
+    width: max-content;
+    animation: marquee-ltr 22s linear infinite;
+  }
+
+  .animate-marquee-ltr:hover,
+  .animate-marquee-ltr:active {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-rtl {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  .animate-marquee-rtl {
+    display: flex;
+    width: max-content;
+    animation: marquee-rtl 25s linear infinite;
+  }
+
+  .animate-marquee-rtl:hover,
+  .animate-marquee-rtl:active {
+    animation-play-state: paused;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #232738;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7c5cf7;
+}
